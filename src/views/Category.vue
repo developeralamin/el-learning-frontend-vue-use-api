@@ -1,6 +1,6 @@
 <template>
     <div>
-           <h1>I am happy to use API wiht Laravel and Vue....Category Section</h1>
+           <h1>API Laravel and Vue....Category Section</h1>
          <div v-for="category in categoyries" :key="category.id">
            {{ category.name }}
          </div>

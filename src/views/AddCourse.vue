@@ -12,9 +12,13 @@
 
             <div class="mb-2">
                 <label for="exampleFormControlInput1" class="form-label">Course Title</label>
-                <input  type="text"  v-model="course.title" class="form-control" id="exampleFormControlInput1" placeholder="Course Title">
+                <input  type="text"  v-model="course.title" name="title" autofocus class="form-control" id="exampleFormControlInput1" placeholder="Course Title">
                   <!-- {{ course.title }} -->
             </div>
+
+             <div class="alert alert-danger" v-if="errors && errors.title">
+                    {{ errors.title[0] }}
+                </div>
 
              <div class="mb-2">
                 <label for="exampleFormControlInput1" class="form-label">Course Description</label>
@@ -45,7 +49,8 @@ export default {
         return {
             course:{
                 title:'',
-                description:''
+                description:'',
+                errors : {}
             }
         };
     },
@@ -55,9 +60,10 @@ export default {
 
                  alert(response.data.message)
                  console.log(response)
-
+                 this.errors = {};
                  this.course.title = null
                  this.course.description = null
+
             })
         }
     },
